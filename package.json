@@ -1,0 +1,37 @@
+{
+  "name": "realworld-api",
+  "version": "1.0.0",
+  "description": "RealWorld library for open API calls using JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/api.js",
+    "build-docs": "documentation readme index.js --section=api",
+    "build-min": "browserify index.js --standalone RealWorld | uglifyjs -mc > realworld.min.js",
+    "prepublish": "npm run build-docs && npm run build-min"
+  },
+  "keywords": [
+    "realworld",
+    "api"
+  ],
+  "browserify": {
+    "transform": [
+      "es2020"
+    ]
+  },
+  "author": "Nick Peihl <nickpeihl@gmail.com> (http://npeihl.com/)",
+  "repository": "https://github.com/nickpeihl/realworld-api.git",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "nets": "^3.2.0",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "documentation": "^5.3.2",
+    "es2020": "^1.1.9",
+    "run-parallel": "^1.1.6",
+    "tape": "^4.8.0",
+    "tape-cluster": "^2.1.2",
+    "uglifyjs": "^2.4.11"
+  }
+}
